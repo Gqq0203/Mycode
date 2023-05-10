@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzx.Dao.RecordMapper">
+    <insert id="addRecord" parameterType="Record">
+        insert into record (sno,tno,state,time)
+        values (#{sno},#{tno},#{state},#{time})
+    </insert>
+    <delete id="deleteRecordById" parameterType="int">
+        delete from record
+        where rid=#{id}
+    </delete>
+    <update id="updateRecord" parameterType="Record">
+        update record set sno=#{sno},tno=#{tno},state=#{state},time=#{time}
+        where rid=#{id}
+    </update>
+    <select id="queryRecordById" resultType="Record">
+        select * from record
+        where rid=#{id}
+    </select>
+    <select id="queryAllRecord" resultType="Record">
+        select * from record
+    </select>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzx.Dao.AdminMapper">
+
+<!--    <insert id="addAdmin" parameterType="Admin">
+        insert into chosen.admin (name,password)
+        values(#{name},#{password});
+    </insert>
+    <delete id="deleteAdminByName" parameterType="string">
+        delete from chosen.admin where name=#{adminName}
+    </delete>
+    <update id="updateAdmin" parameterType="Admin">
+        update chosen.admin set password =#{password}
+        where name =#{name} ;
+    </update>
+    <select id="queryAdminByName" resultType="Admin">
+        select * from chosen.admin
+        where name=#{adminName}
+    </select>
+    <select id="queryAllAdmin" resultType="Admin">
+        select * from chosen.admin
+    </select>-->
+
+    <insert id="addAdmin" parameterType="Admin">
+        insert into admin (name,password)
+        values(#{name},#{password});
+    </insert>
+    <delete id="deleteAdminByName" parameterType="string">
+        delete from admin where name=#{adminName}
+    </delete>
+    <update id="updateAdmin" parameterType="Admin">
+        update admin set password =#{password}
+        where name =#{name} ;
+    </update>
+    <select id="queryAdminByName" resultType="Admin">
+        select * from admin
+        where name=#{adminName}
+    </select>
+    <select id="queryAllAdmin" resultType="Admin">
+        select * from admin
+    </select>
+
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzx.Dao.RegisterMapper">
+
+    <insert id="addRegister" parameterType="Register">
+        insert into register(sno,tno,state,able,time)
+        values (#{sno},#{tno},#{state},#{able},#{time});
+    </insert>
+    <delete id="deleteRegisterById" parameterType="int">
+        delete from register
+        where rid=#{rid};
+    </delete>
+    <update id="updateRegister" parameterType="Register">
+        update register set sno=#{sno},tno=#{tno},state=#{state},able=#{able}
+        where rid=#{rid}
+    </update>
+    <select id="queryRegisterById" resultType="Register">
+        select * from register
+        where rid=#{rid}
+    </select>
+    <select id="queryRegister" resultType="Register">
+        select * from register
+    </select>
+    <select id="queryRegisterBySno" resultType="Register">
+        select * from register
+        where sno=#{StudentNo}
+    </select>
+    <select id="queryRegisterByTno" resultType="Register">
+        select * from register
+        where tno=#{TeacherNo}
+    </select>
+
+</mapper>

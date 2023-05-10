@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 扫描service相关的bean -->
+    <context:component-scan base-package="com.wzx.Service"/>
+
+
+    <!--ServiceImpl注入到IOC容器中-->
+    <bean id="AdminServiceImpl" class="com.wzx.Service.AdminServiceImpl">
+        <property name="adminMapper" ref="adminMapper"/>
+    </bean>
+    <bean id="StudentServiceImpl" class="com.wzx.Service.StudentServiceImpl">
+        <property name="studentMapper" ref="studentMapper"/>
+    </bean>
+    <bean id="TeacherServiceImpl" class="com.wzx.Service.TeacherServiceImpl">
+        <property name="teacherMapper"  ref="teacherMapper"/>
+    </bean>
+    <bean id="RegisterServiceImpl" class="com.wzx.Service.RegisterServiceImpl">
+        <property name="registerMapper" ref="registerMapper"/>
+    </bean>
+    <bean id="FirstRegisterServiceImpl" class="com.wzx.Service.FirstRegisterServiceImpl">
+        <property name="firstRegisterMapper" ref="firstRegisterMapper"/>
+    </bean>
+    <bean id="SecondRegisterServiceImpl" class="com.wzx.Service.SecondRegisterServiceImpl">
+        <property name="secondRegisterMapper" ref="secondRegisterMapper"/>
+    </bean>
+    <bean id="ThirdRegisterServiceImpl" class="com.wzx.Service.ThirdRegisterServiceImpl">
+        <property name="thirdRegisterMapper" ref="thirdRegisterMapper"/>
+    </bean>
+    <bean id="NoticeServiceImpl" class="com.wzx.Service.NoticeServiceImpl">
+        <property name="noticeMapper" ref="noticeMapper"/>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!-- aop事务支持 -->
+</beans>
